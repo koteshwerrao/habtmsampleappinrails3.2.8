@@ -1,0 +1,132 @@
+rvm install  1.9.3(ruby version)
+rvm list
+-----ruby -1.9.3-p354
+-----ruby -1.9.3-p354
+
+rvm use ruby -1.9.3-p354
+rvm gemset create rails3
+rvm gemset use rails3
+gem install rails -v 3.2.8
+bundle 
+rake sunspot:solr:start
+
+
+git status(it will the show the updated files changes in user system)
+git checkout  db/schema.rb(old file only)_
+git pull 
+
+git add . (selecting all files)
+#git add   db/schema.rb(no use )
+git commit -m "user defined name"
+git push origin master
+
+rvm use  ruby-1.9.3-p550@rails3
+rvm use ruby -1.9.3-p354@yogyas
+
+Connection refused - connect(2)
+
+
+http://www.maxdesign.com.au/articles/css3-media-queries/media-sample/
+
+
+
+
+SELECT COLUMN_NAME, TABLE_NAME 
+FROM INFORMATION_SCHEMA.COLUMNS 
+WHERE COLUMN_NAME LIKE '%drill_down%';
+
+error code -> "Sunspot::Solr::Server::AlreadyRunningError: Server is already running with PID 2982"
+ps aux | grep solr ->>> solr port no
+kill -9 portno(like 2982,2235)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+error  code-> "server is already running in rails"
+ps aux | grep rails ->>> rails port no
+kill -9 portno(like 2234,2235)
+
+
+
+
+
+
+
+
+==================================
+ diffuse _profile_east_section.html.erb _profile_east_section.html1.erb
+
+<---------- to precompile the code -------------->
+rake assets:precompile
+
+
+
+===============================Mysql Dump Commands
+mysqldump -u root -p root  t4(databasename -> config/databse.yml) > 6jan_t4.sql(file name user defined file name but file extension mandatory for .sql) -> (for backup db)
+
+mysqldump -u root -p t4 > 6jan_t4.sql -> 
+
+mysql -u root -p yogya_admin < yogya_me.sql
+===========================================
+
+config database.yml password changes
+app/models/user.rb line no 44 comment(include Amistad::FriendModel)
+app/controllers/profiles_controller.rb=> comment the below lines..........
+(@mutual_friends = @profile.owner.common_friends_with(current_user)
+      #@only_sign = current_user.owned_profiles.include?(@profile))
+
+=========================
+jquery fancybox examples link
+https://github.com/fancyapps/fancyBox
+===============================
+=====================================
+To connect to staging
+--------------------------------
+ssh root@192.168.0.3 -p 4567
+pwd:F#AR0~5Z?E}D6tJ-}
+cd /var/www/t4/current 
+tail -f log/staging.log
+=====================================
+ ========================================
+
+  to connect to production 
+-----------------------------------------
+  ssh -p 4567 deploy@testifor.com
+ cd projects/t4prod/current
+========================================
+=======================================
+to restart staging server 
+---------------------------------------
+cd current
+touch tmp/restart.txt
+=======================================
+
+
+=====================================
+to precompile the code
+------------------------------------
+RAILS_ENV=staging bundle exec rake assets:precompile
+=============================================
+
+
+=====================================================
+for system update
+-----------------------------------------------------
+sudo apt-get update -o Acquire::http::No-Cache=True
+=====================================================
+
+https://www.youtube.com/watch?v=H6BoTpQ1YDk
+
+http://mongoid.org/en/mongoid/index.html
+[6:03:34 PM] Koteshwar Rao R: http://railscasts.com/episodes/238-mongoid?view=asciicast
+
+
+
+ <%=link_to "download", monthly_report_down_path(:code => p.code,:format => 'pdf')%>
+
+
+  match "/download_testimonials_monthly_report"=>"businessdb#download_testimonials_monthly_report"
+
+
+def download_testimonials_monthly_report
+    @profile = Profile.getting_profile(params[:code])
+    @test =  @profile.testimonials
+    render :layout=>false
+  end
