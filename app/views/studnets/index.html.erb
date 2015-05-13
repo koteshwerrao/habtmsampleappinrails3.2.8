@@ -1,0 +1,29 @@
+<h1>Listing studnets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @studnets.each do |studnet| %>
+  <tr>
+    <td><%= studnet.name %></td>
+    <td><%= studnet.city %></td>
+    <td><%= studnet.state %></td>
+    <td><%= studnet.address %></td>
+    <td><%= link_to 'Show', studnet %></td>
+    <td><%= link_to 'Edit', edit_studnet_path(studnet) %></td>
+    <td><%= link_to 'Destroy', studnet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Studnet', new_studnet_path %>

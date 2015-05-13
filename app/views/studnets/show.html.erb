@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @studnet.name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @studnet.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @studnet.state %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @studnet.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_studnet_path(@studnet) %> |
+<%= link_to 'Back', studnets_path %>
